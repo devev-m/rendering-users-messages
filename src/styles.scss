@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+// ========= Reset CSS =========
+*, *::before, *::after {box-sizing: border-box;}
+* {padding: 0;margin: 0;border: 0;}
+ul li {list-style: none;}
+:focus, :active {outline: none;}
+input, button, textarea {font-family: inherit;}
+button, a {cursor: pointer;color: inherit;transition: .3s;}
+a, a:visited {text-decoration: none;}
+img {max-width: 100%;height: auto;}
+// ========= CSS Base =========
+html, body {
+   height: 100%;
+   width: 100%;
+   font-family: 'Montserrat', sans-serif;
+}
+.container {
+   margin: 0 auto;
+   padding: 0 15px;
+}
