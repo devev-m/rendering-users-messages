@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rendering-users-messages';
-
-  submit(){
-    console.log('Submit Test');
-  }
 }

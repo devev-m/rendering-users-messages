@@ -7,16 +7,25 @@
    </div>
    <div class="table__body">
       <div class="table__main">
-         <div class="table__main-wrapper">
-            <div class="table__main-headers">
-               <p>Headers</p>
-            </div>
-            <div class="table__main-data">
-               <p>Data</p>
+         <div class="table__main-headers">
+            <div class="table__main-headers-title table__main-headers-title_id">id</div>
+            <div class="table__main-headers-title table__main-headers-title_username">username</div>
+            <div class="table__main-headers-title table__main-headers-title_data">data</div>
+            <div class="table__main-headers-title table__main-headers-title_message">message</div>
+            <div class="table__main-headers-title table__main-headers-title_options">options</div>
+         </div>
+         <div class="table__main-data">
+            <div class="table__main-data-row" [ngClass]="{ active: active }"
+               *ngFor="let user of users | async | paginate: { itemsPerPage: 4, currentPage: p }">
+               <p class="table__main-data-item table__main-data-item_id">{{user.id}}</p>
+               <p class="table__main-data-item table__main-data-item_username">{{user.username}}</p>
+               <p class="table__main-data-item table__main-data-item_data">{{user.datetime}}</p>
+               <p class="table__main-data-item table__main-data-item_message">{{user.message | slice: 0:100}}...</p>
+               <p class="table__main-data-item table__main-data-item_options" (click)="deleteUser(user)">Delete</p>
             </div>
          </div>
-         <div class="table__pagination">
-            <p>Pagination</p>
+         <div class="table__main-pagination">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
          </div>
       </div>
       <div class="table__aside">

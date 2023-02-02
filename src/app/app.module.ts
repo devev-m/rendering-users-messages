@@ -8,6 +8,8 @@ import { ButtonComponent } from './components/ui-components/button/button.compon
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
+import { ApiService } from './services/api.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,9 +23,10 @@ import { TableComponent } from './components/table/table.component';
     BrowserModule,
     FormsModule,
     NgxPaginationModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

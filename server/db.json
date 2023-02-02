@@ -22,13 +22,19 @@
          "id": 4,
          "username": "Kate",
          "datetime": "01-04-2023 04:05:06",
-         "message": "Old boys club. Spinning our wheels reach out on this journey, nor feature creep, yet have bandwidth, nor our competitors are jumping the shark. Where do we stand on the latest client ask. Build on a culture of contribution and inclusion not the long pole in my tent. Close the loop put your feelers out, and new economy out of scope social currency, yet horsehead offer dunder mifflin. Prepare yourself to swim with the sharks. Pig in a python work flows , and where do we stand on the latest client ask. Conversational content ping me, so baseline, or weaponize the data, and pixel pushing. Dear hiring manager:. Horsehead offer."
+         "message": "Old boys club. Spinning our wheels reach out on this journey, nor feature creep, yet have bandwidth nor our competitors are jumping the shark. Where do we stand on the latest client ask. Build on a culture of contribution and inclusion not the long pole in my tent. Close the loop put your feelers out, and new economy out of scope social currency, yet horsehead offer dunder mifflin. Prepare yourself to swim with the sharks. Pig in a python work flows , and where do we stand on the latest client ask. Conversational content ping me, so baseline, or weaponize the data, and pixel pushing. Dear hiring manager:. Horsehead offer."
       },
       {
          "id": 5,
          "username": "Ivan",
          "datetime": "01-05-2023 05:06:07",
          "message": "Let's prioritize the low-hanging fruit take five, punch the tree, and come back in here with a clear head, and in an ideal world imagineer low engagement, nor no scraps hit the floor. Gain traction action item. Marginalised key performance indicators show pony, pig in a python, but offline this discussion, yet low engagement, for are we in agreeance. Throughput the closest elephant is the most dangerous effort made was a lot bleeding edge, 360 degree content marketing pool, yet the last person we talked to said this would be ready. Show grit bake it in turn the crank, so prepare yourself to swim with the sharks, yet table the discussion , nor let me know if you need me to crack any skulls. Do i have consent to record this meeting."
+      },
+      {
+         "id": 6,
+         "username": "Tate",
+         "datetime": "01-06-2023 06:07:08",
+         "message": "This a default component for displaying pagination controls. It is implemented on top of the PaginationControlsDirective, and has a pre-set template and styles based on the Foundation 6 pagination component. If you require a more customised set of controls, you will need to use the PaginationControlsDirective and implement your own component."
       }
    ]
 }
