@@ -23,12 +23,22 @@ export class ApiService {
    }
    
    // DELETE: delete user from the server
-   public deleteUser(user: any) {
-      return this.http.delete(API_URL + 'messages/' + user.id);
+   public deleteUser(id: string) {
+      this.http.delete(API_URL + 'messages/' + id)
+      .subscribe();
    }
 
-   // PUT: put new data to the server
-   public putUser(user: any) {
-      return this.http.put(API_URL + 'messages/', user);
+   // ADD: add new data to the server
+   addUserData(userData: any): Observable<any> {
+      // const headers = {'content-type': 'application/json'}  
+      const body = JSON.stringify(userData);
+      return this.http.post(API_URL + 'messages', body);
+      // return this.http.post(API_URL + 'messages', body, {'headers': headers})
    }
+
+   // UPDATE: update users data
+   // updateUser(updatedUser: any): Observable<any> {  
+   //    const body = JSON.stringify(updatedUser);
+   //    return this.http.post(API_URL + 'messages/' + {updatedUser.id}, body);
+   // }
 }

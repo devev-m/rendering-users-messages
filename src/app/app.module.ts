@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 import { ApiService } from './services/api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgxPaginationModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [ApiService, HttpClient],
   bootstrap: [AppComponent]
