@@ -1,0 +1,14 @@
+<form method="post" class="form-newdata">
+   <label for="form-newdata__input">Username:</label>
+   <input type="text" id="form-newdata__input" class="form-newdata__input" required>
+   <label for="form-newdata__message">Message:</label>
+   <textarea type="text" id="form-newdata__message" class="form-newdata__input form-newdata__input_wide" required></textarea>
+   <label for="form-newdata__datetime">Date and time:</label>
+   <input id="form-newdata__datetime" type="datetime-local" name="newdata" class="form-newdata__input" required>
+   <div class="form-newdata__button">
+      <app-button [textButton]="'Add data'"></app-button>
+   </div>
+   <div class="form-newdata__button">
+      <app-button [textButton]="'Close'"></app-button>
+   </div>
+</form>

@@ -29,16 +29,16 @@ export class ApiService {
    }
 
    // ADD: add new data to the server
-   addUserData(userData: any): Observable<any> {
+   addUserData(userData: any) {
       // const headers = {'content-type': 'application/json'}  
       const body = JSON.stringify(userData);
-      return this.http.post(API_URL + 'messages', body);
+      this.http.post(API_URL + 'messages/', body);
       // return this.http.post(API_URL + 'messages', body, {'headers': headers})
    }
 
    // UPDATE: update users data
    // updateUser(updatedUser: any): Observable<any> {  
    //    const body = JSON.stringify(updatedUser);
-   //    return this.http.post(API_URL + 'messages/' + {updatedUser.id}, body);
+   //    return this.http.put(API_URL + 'messages/' + {updatedUser.id}, body);
    // }
 }

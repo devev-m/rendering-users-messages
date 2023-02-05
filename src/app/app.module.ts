@@ -11,6 +11,7 @@ import { TableComponent } from './components/table/table.component';
 import { ApiService } from './services/api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalformComponent } from './components/ui-components/modalform/modalform.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     ButtonComponent,
     HeaderComponent,
-    TableComponent
+    TableComponent,
+    ModalformComponent
   ],
   imports: [
     BrowserModule,

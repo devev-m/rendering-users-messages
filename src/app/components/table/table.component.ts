@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IUser } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
+import { ModalformComponent } from '../ui-components/modalform/modalform.component';
 
 @Component({
   selector: 'app-table',
@@ -17,29 +17,30 @@ export class TableComponent {
 
   public p: number = 1;
   public selectedUser: any;
-  public active: boolean = false;
+  public isModalDialogVisible: boolean = false;
 
   deleteUser(id: any){
     if(confirm("Are you sure to delete?")) {
+      if(id == this.selectedUser.id) {
+        this.selectedUser = '';
+      }
       this.apiService.deleteUser(id);
       this.users = this.apiService.get('messages');
     }
   }
+  // addUserData(user: any){
+  //   console.log(user);
+  // }
 
   // changeUser(user: any){
   //   console.log(user);
   // }
 
-  // addUserData(user: any){
-  //   console.log(user);
-  // }
-
-  toggle() {
-    this.active = !this.active
-  }
-
-  showUser(user: any) {
+  showUser(user: any): void {
     this.selectedUser = user;
-    // this.toggle();
   }
+
+  showDialog() {
+		this.isModalDialogVisible = true;
+	}
 }
