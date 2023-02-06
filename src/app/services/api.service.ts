@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { IUser } from '../models/user';
+
 
 const API_URL = 'http://localhost:4000/';
 
@@ -29,11 +31,10 @@ export class ApiService {
    }
 
    // ADD: add new data to the server
-   addUserData(userData: any) {
-      // const headers = {'content-type': 'application/json'}  
-      const body = JSON.stringify(userData);
-      this.http.post(API_URL + 'messages/', body);
-      // return this.http.post(API_URL + 'messages', body, {'headers': headers})
+   addUserData(user: IUser) {
+      const body = JSON.stringify(user);
+      this.http.post(API_URL + 'messages', body)
+      .subscribe();
    }
 
    // UPDATE: update users data

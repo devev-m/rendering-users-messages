@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-modalform',
@@ -7,18 +8,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ModalformComponent {
   
-	// private confirm() {
-	// 	this.isConfirmed = true;
-	// }
+  @Output() closeModalDialog = new EventEmitter();
+  @Output() submitData = new EventEmitter();
 
-	// close() {
-	// 	this.isConfirmed.emit(false);
-	// }
+  buttonClose(){
+    this.closeModalDialog.emit();
+  }
 
-  @Output()
-  public readonly buttonClick = new EventEmitter;
-
-  public submit(): void {
-    this.buttonClick.emit();
+  onSubmit(f: NgForm) {
+    console.log(f.value);
+    this.submitData.emit();
   }
 }

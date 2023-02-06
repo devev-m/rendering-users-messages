@@ -6,13 +6,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
+
   @Input()
-  public textButton: string=''
+  public textButton: string='';
 
-  @Output()
-  public readonly buttonClick = new EventEmitter
+  @Output() closeButton = new EventEmitter;
+  @Output() submitButton = new EventEmitter;
 
-  public submit(): void {
-    this.buttonClick.emit();
+  action() {
+    this.closeButton.emit();
+    this.submitButton.emit();
   }
 }
