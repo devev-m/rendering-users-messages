@@ -1,27 +1,27 @@
-# RenderingUsersMessages
+# Rendering Users Messages project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+This project was generated with Angular CLI version 15.1.1.
 
-## Development server
+## How to look at this project?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### Download the project
+Run `git clone` command or `Download ZIP`
 
-## Code scaffolding
+#### Install JSON Server 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm install -g json-server
+```
 
-## Build
+#### Start Angular server and JSON Server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm start
+```
 
-## Running unit tests
+#### Go to
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`http://localhost:4200` Angular project
 
-## Running end-to-end tests
+`http://localhost:4000` JSON Server data
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
