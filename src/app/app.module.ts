@@ -6,12 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './components/ui-components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 import { ApiService } from './services/api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalformComponent } from './components/ui-components/modalform/modalform.component';
+import { ModalformComponent } from './components/modalform/modalform.component';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { ModalformComponent } from './components/ui-components/modalform/modalfo
     NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService, HttpClient],
   bootstrap: [AppComponent]

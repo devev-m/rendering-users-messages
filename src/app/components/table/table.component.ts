@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { IUser } from 'src/app/models/user';
 
@@ -14,38 +14,63 @@ export class TableComponent {
   ) { }
 
   public users = this.apiService.users;
-  
-  public p: number = 1;
+
+  public page: number = 1;
+
   public selectedUser: any;
+
   public isModalDialogVisible: boolean = false;
 
-  deleteUser(id: any){
-    if(confirm("Are you sure to delete?")) {
-      if(id == this.selectedUser.id) {
-        this.selectedUser = '';
-      }
-      this.apiService.deleteUser(id);
+  public isNewForm: boolean = false;
+
+  public currentUser: any;
+
+  deleteUser(event: Event, user: any) {
+    event.stopPropagation();
+    if (confirm("Are you sure to delete?")) {
+      this.apiService.deleteUser(user.id);
       this.users = this.apiService.get('messages');
+      this.selectedUser = null;
     }
   }
 
-  addData(user: IUser){
-    // this.apiService.addUserData(this.user)
-    console.log(user);
-    // this.users = this.apiService.get('messages');
+  addUser(user: IUser) {
+    const newID = Math.floor(Math.random() * 1000 + 1);
+    this.apiService.addUserData({ ...user, id: newID });
+    this.users = this.apiService.get('messages');
   }
 
-  // changeUser(user: any){
-  //   console.log(user);
-  // }
+  putNewUserData(user: IUser) {
+    const currentID = this.selectedUser.id;
+    this.apiService.updateUserData({ ...user, id: currentID });
+    this.users = this.apiService.get('messages');
+  }
+
+  addData(user: IUser) {
+    if (this.isNewForm) {
+      this.addUser(user);
+    } else {
+      this.putNewUserData(user);
+    }
+    this.closeDialog();
+    this.selectedUser = null;
+  }
 
   showUser(user: any): void {
     this.selectedUser = user;
   }
 
   showDialogForm() {
-		this.isModalDialogVisible = true;
-	}
+    this.isModalDialogVisible = true;
+    this.isNewForm = true;
+  }
+
+  showDialogFormCreated(selectedUser: any) {
+    if (selectedUser) {
+      this.isModalDialogVisible = true;
+      this.isNewForm = false;
+    }
+  }
 
   closeDialog() {
     this.isModalDialogVisible = false;

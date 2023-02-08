@@ -7,14 +7,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonComponent {
 
-  @Input()
-  public textButton: string='';
+  @Input() public textButton: string = '';
 
-  @Output() closeButton = new EventEmitter;
-  @Output() submitButton = new EventEmitter;
+  @Output() buttonAction = new EventEmitter;
 
   action() {
-    this.closeButton.emit();
-    this.submitButton.emit();
+    this.buttonAction.emit();
   }
 }

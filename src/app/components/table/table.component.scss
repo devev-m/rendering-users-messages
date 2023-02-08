@@ -1,27 +1,32 @@
-.table{
+.table {
    min-height: calc(100% - 122px);
    display: flex;
    flex-direction: column;
    border: 1px solid #674188;
    border-left: none;
-   &__top{
+
+   &__top {
       display: flex;
       padding: 10px;
       border: 1px solid #674188;
       border-bottom: none;
-      &-leftside{
+
+      &-leftside {
          flex: 1 1 auto;
       }
-      &-rightside{
+
+      &-rightside {
          flex-basis: 30%;
          padding: 0 0 0 15px;
       }
    }
-   &__body{
+
+   &__body {
       display: flex;
       flex-grow: 1;
    }
-   &__main{
+
+   &__main {
       display: flex;
       flex-direction: column;
       flex: 1 0 70%;
@@ -29,98 +34,121 @@
       border: 1px solid #674188;
       border-left: none;
       border-top: none;
-      &-headers{
+
+      &-headers {
          display: flex;
          position: sticky;
          top: 0;
          background-color: #eee;
-         &-title{
+
+         &-title {
             font-weight: 700;
             padding: 10px 5px;
             border-top: 2px solid #674188;
             border-right: none;
             border-bottom: 1px solid #674188;
             border-left: 2px solid #674188;
-            &_id{
+
+            &_id {
                flex-basis: 5%;
             }
-            &_username{
+
+            &_username {
                flex-basis: 15%;
             }
-            &_data{
+
+            &_data {
                flex-basis: 20%;
             }
-            &_message{
+
+            &_message {
                flex-basis: 45%;
             }
-            &_options{
+
+            &_options {
                flex-basis: 15%;
             }
          }
       }
-      &-data{
+
+      &-data {
          flex-grow: 1;
-         &-row{
+
+         &-row {
             display: flex;
             flex-wrap: wrap;
             cursor: pointer;
             border-top: 1px solid #674188;
             border-bottom: 1px solid #674188;
-            height: 60px;
-            &:last-child{
+            min-height: 60px;
+
+            &:last-child {
                border-bottom: 2px solid #674188;
             }
          }
-         &-item{
+
+         &-item {
             padding: 5px;
             border-left: 2px solid #674188;
-            &_id{
+
+            &_id {
                flex-basis: 5%;
             }
-            &_username{
+
+            &_username {
                flex-basis: 15%;
             }
-            &_data{
+
+            &_data {
                flex-basis: 20%;
             }
-            &_message{
+
+            &_message {
                flex-basis: 45%;
             }
-            &_options{
+
+            &_options {
                flex-basis: 15%;
-               &:hover{
+
+               &:hover {
                   color: rgb(250, 55, 55);
                   font-weight: 700;
                }
             }
          }
       }
-      &-pagination{
+
+      &-pagination {
          padding: 10px 0 0 0;
       }
    }
-   &__aside{
+
+   &__aside {
       display: flex;
       flex-direction: column;
       flex-basis: 30%;
       border: 1px solid #674188;
       border-top: none;
-      &-main{
+
+      &-main {
          flex: 1 1 auto;
          padding: 10px;
          border-top: 2px solid #674188;
          position: sticky;
          top: 0;
          margin: 0px 0px 50px 0px;
-         &-text{
+
+         &-text {
             padding: 0 0 10px 0;
          }
       }
-      &-footer{
+
+      &-footer {
          padding: 10px;
       }
    }
 }
-.active{
+
+.active {
    background-color: aqua;
 }

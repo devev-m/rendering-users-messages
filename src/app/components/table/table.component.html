@@ -3,7 +3,8 @@
       <div class="table__top-leftside"></div>
       <div class="table__top-rightside">
          <app-button [textButton]="'Добавить'" (click)="showDialogForm()"></app-button>
-         <app-modalform *ngIf="isModalDialogVisible" (closeModalDialog)="closeDialog()"></app-modalform>
+         <app-modalform *ngIf="isModalDialogVisible" [isNewFormCondition]="isNewForm" [userSelected]="selectedUser"
+            (closeModalDialog)="closeDialog()" (submitData)="addData($event)"></app-modalform>
       </div>
    </div>
    <div class="table__body">
@@ -16,26 +17,32 @@
             <div class="table__main-headers-title table__main-headers-title_options">options</div>
          </div>
          <div class="table__main-data">
-            <div class="table__main-data-row" *ngFor="let user of users | async | paginate: { itemsPerPage: 10, currentPage: p }" [class.active]="user == selectedUser">
-               <p class="table__main-data-item table__main-data-item_id" (click)="showUser(user)">{{user.id}}</p>
-               <p class="table__main-data-item table__main-data-item_username" (click)="showUser(user)">{{user.username}}</p>
-               <p class="table__main-data-item table__main-data-item_data" (click)="showUser(user)">{{user.datetime | date: 'dd.MM.YYYY HH:mm:ss'}}</p>
-               <p class="table__main-data-item table__main-data-item_message" (click)="showUser(user)">{{user.message | slice: 0:100}}...</p>
-               <p class="table__main-data-item table__main-data-item_options" (click)="deleteUser(user.id)">Delete</p>
+            <div class="table__main-data-row"
+               *ngFor="let user of users | async | paginate: { itemsPerPage: 10, currentPage: page }"
+               (click)="showUser(user)" [class.active]="user == selectedUser">
+               <p class="table__main-data-item table__main-data-item_id">{{user.id}}</p>
+               <p class="table__main-data-item table__main-data-item_username">
+                  {{user.username}}</p>
+               <p class="table__main-data-item table__main-data-item_data">{{user.datetime |
+                  date: 'dd.MM.YYYY HH:mm:ss'}}</p>
+               <p class="table__main-data-item table__main-data-item_message">
+                  {{(user.message.length > 100) ? (user.message | slice: 0:100) + '...' : user.message }}</p>
+               <p class="table__main-data-item table__main-data-item_options" (click)="deleteUser($event, user)">Delete
+               </p>
             </div>
          </div>
          <div class="table__main-pagination">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
          </div>
       </div>
       <div class="table__aside">
          <div class="table__aside-main">
             <p class="table__aside-main-text">{{selectedUser?.username}}</p>
-            <p class="table__aside-main-text">{{selectedUser?.datetime}}</p>
+            <p class="table__aside-main-text">{{selectedUser?.datetime | date: 'dd.MM.YYYY HH:mm:ss'}}</p>
             <p class="table__aside-main-text">{{selectedUser?.message}}</p>
          </div>
          <div class="table__aside-footer">
-            <app-button [textButton]="'Изменить'"></app-button>
+            <app-button [textButton]="'Изменить'" (click)="showDialogFormCreated(selectedUser)"></app-button>
          </div>
       </div>
    </div>
