@@ -9,15 +9,26 @@ This project was generated with Angular CLI version 15.1.1.
 
 ## How to look at this project?
 
-#### Download the project
+### Download the project
 Run `git clone` command or `Download ZIP`
 
-#### Install JSON Server 
+### Install all npm packages using command line
+
+#### Install npm and angular-npm
 
 ```
-npm install -g json-server
+npm install
+npm install angular
 ```
 
+#### Install multiple commands concurrently package and JSON Server 
+
+```
+npm i -g concurrently
+npm i -g json-server
+```
+
+### Start the App
 #### Start Angular server and JSON Server
 
 ```
