@@ -17,16 +17,12 @@ export class ApiService {
       private http: HttpClient
    ) { }
 
+   public usersArray = this.get('messages');
+
    // GET: get users from the server
    public get(url: string): Observable<any> {
       return this.http.get(API_URL + url).pipe(map(res => res));
    }
-
-   public getOne(url: string): Observable<any> {
-      return this.http.get(API_URL + url);
-   }
-
-   public users = this.get('messages');
 
    // DELETE: delete user from the server
    public deleteUser(id: string) {
@@ -34,7 +30,7 @@ export class ApiService {
    }
 
    // ADD: add new data to the server
-   addUserData(user: IUser) {
+   addUserData(user: any) {
       this.http.post(API_URL + 'messages', user).subscribe();
    }
 

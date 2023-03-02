@@ -1,16 +1,25 @@
-.form-newdata {
-   font-weight: 700;
+.form-wrap {
    display: flex;
-   flex-direction: column;
    justify-content: center;
-   text-align: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
    width: 100%;
    min-height: 100%;
+   font-weight: 700;
    position: fixed;
    top: 0;
    left: 0;
    z-index: 10;
+}
+.form-newdata {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   width: 40%;
+   padding: 20px;
    background-color: #fff;
+   border-radius: 10px;
 
    &__input {
       padding: 5px;
@@ -19,13 +28,13 @@
       border-radius: 5px;
 
       &_wide {
-         width: 40%;
          height: 100px;
+         width: 100%;
       }
    }
 
    &__button {
-      width: 30%;
+      width: 80%;
       padding: 0px 0px 10px 0px;
       margin: 0 auto;
 

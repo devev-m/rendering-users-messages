@@ -23,7 +23,7 @@ export class ModalformComponent {
       this.form = new FormGroup({
         username: new FormControl(this.userSelected.username, Validators.required),
         message: new FormControl(this.userSelected.message, Validators.required),
-        datetime: new FormControl(this.userSelected.datetime, Validators.required),
+        datetime: new FormControl(this.userSelected.datetime, Validators.required)
       })
     } else {
       this.form = new FormGroup({

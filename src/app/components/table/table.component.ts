@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { IUser } from 'src/app/models/user';
 
@@ -13,7 +13,7 @@ export class TableComponent {
     private readonly apiService: ApiService
   ) { }
 
-  public users = this.apiService.users;
+  public users = this.apiService.usersArray;
 
   public page: number = 1;
 
@@ -29,20 +29,22 @@ export class TableComponent {
     event.stopPropagation();
     if (confirm("Are you sure to delete?")) {
       this.apiService.deleteUser(user.id);
-      this.users = this.apiService.get('messages');
       this.selectedUser = null;
+      this.users = this.apiService.get('messages');
     }
   }
 
   addUser(user: IUser) {
     const newID = Math.floor(Math.random() * 1000 + 1);
     this.apiService.addUserData({ ...user, id: newID });
+    this.selectedUser = null;
     this.users = this.apiService.get('messages');
   }
 
   putNewUserData(user: IUser) {
     const currentID = this.selectedUser.id;
     this.apiService.updateUserData({ ...user, id: currentID });
+    this.selectedUser = null;
     this.users = this.apiService.get('messages');
   }
 
@@ -53,7 +55,6 @@ export class TableComponent {
       this.putNewUserData(user);
     }
     this.closeDialog();
-    this.selectedUser = null;
   }
 
   showUser(user: any): void {

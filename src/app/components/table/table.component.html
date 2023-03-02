@@ -18,7 +18,7 @@
          </div>
          <div class="table__main-data">
             <div class="table__main-data-row"
-               *ngFor="let user of users | async | paginate: { itemsPerPage: 10, currentPage: page }"
+               *ngFor="let user of users | async | paginate: { itemsPerPage: 9, currentPage: page }"
                (click)="showUser(user)" [class.active]="user == selectedUser">
                <p class="table__main-data-item table__main-data-item_id">{{user.id}}</p>
                <p class="table__main-data-item table__main-data-item_username">
