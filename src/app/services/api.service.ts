@@ -2,40 +2,37 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IUser } from '../models/user';
-
+import { IMessage } from '../models/message';
 
 const API_URL = 'http://localhost:4000/';
 
 @Injectable({
-   providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-   constructor(
-      private http: HttpClient
-   ) { }
+  public usersArray = this.get('messages');
 
-   public usersArray = this.get('messages');
+  // GET: get users from the server
+  public get(url: string): Observable<any> {
+    return this.http.get(API_URL + url).pipe(map((res) => res));
+  }
 
-   // GET: get users from the server
-   public get(url: string): Observable<any> {
-      return this.http.get(API_URL + url).pipe(map(res => res));
-   }
+  // DELETE: delete user from the server
+  public deleteUser(id: string) {
+    this.http.delete(API_URL + 'messages/' + id).subscribe();
+  }
 
-   // DELETE: delete user from the server
-   public deleteUser(id: string) {
-      this.http.delete(API_URL + 'messages/' + id).subscribe();
-   }
+  // ADD: add new data to the server
+  addUserData(user: any) {
+    this.http.post(API_URL + 'messages', user).subscribe();
+  }
 
-   // ADD: add new data to the server
-   addUserData(user: any) {
-      this.http.post(API_URL + 'messages', user).subscribe();
-   }
-
-   // UPDATE: update user
-   updateUserData(updatedUser: IUser) {
-      this.http.put(API_URL + 'messages/' + updatedUser.id, updatedUser).subscribe();
-   }
+  // UPDATE: update user
+  updateUserData(updatedUser: IMessage) {
+    this.http
+      .put(API_URL + 'messages/' + updatedUser.id, updatedUser)
+      .subscribe();
+  }
 }

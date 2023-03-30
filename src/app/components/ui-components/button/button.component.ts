@@ -3,15 +3,16 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
+  @Input()
+  public textButton: string = '';
 
-  @Input() public textButton: string = '';
+  @Output()
+  public buttonAction = new EventEmitter<void>();
 
-  @Output() buttonAction = new EventEmitter;
-
-  action() {
+  public action(): void {
     this.buttonAction.emit();
   }
 }

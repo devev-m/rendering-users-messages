@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { IUser } from 'src/app/models/user';
+import { IMessage } from 'src/app/models/message';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
 })
-
 export class TableComponent {
-  constructor(
-    private readonly apiService: ApiService
-  ) { }
+  constructor(private readonly apiService: ApiService) {}
 
   public users = this.apiService.usersArray;
 
@@ -27,28 +24,28 @@ export class TableComponent {
 
   deleteUser(event: Event, user: any) {
     event.stopPropagation();
-    if (confirm("Are you sure to delete?")) {
+    if (confirm('Are you sure to delete?')) {
       this.apiService.deleteUser(user.id);
       this.selectedUser = null;
       this.users = this.apiService.get('messages');
     }
   }
 
-  addUser(user: IUser) {
+  addUser(user: IMessage) {
     const newID = Math.floor(Math.random() * 1000 + 1);
     this.apiService.addUserData({ ...user, id: newID });
     this.selectedUser = null;
     this.users = this.apiService.get('messages');
   }
 
-  putNewUserData(user: IUser) {
+  putNewUserData(user: IMessage) {
     const currentID = this.selectedUser.id;
     this.apiService.updateUserData({ ...user, id: currentID });
     this.selectedUser = null;
     this.users = this.apiService.get('messages');
   }
 
-  addData(user: IUser) {
+  addData(user: IMessage) {
     if (this.isNewForm) {
       this.addUser(user);
     } else {
